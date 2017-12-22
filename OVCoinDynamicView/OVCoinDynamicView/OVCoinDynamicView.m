@@ -8,11 +8,16 @@
 
 #import "OVCoinDynamicView.h"
 #import "OVCoinCellView.h"
+#import <CoreMotion/CoreMotion.h>
 
 @interface OVCoinDynamicView () {
     UIDynamicAnimator *animator;
     UIGravityBehavior *gravity;
+    UIDynamicItemBehavior *dynamicBehavior;
     UICollisionBehavior *collision;
+    
+    CMMotionManager *motionManager;
+    NSOperationQueue *motionQueue;
 }
 
 @end
@@ -28,22 +33,39 @@
     gravity = [[UIGravityBehavior alloc] initWithItems:@[]];
     [animator addBehavior:gravity];
     
+    dynamicBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[]];
+    dynamicBehavior.elasticity = 0.7;
+    [animator addBehavior:dynamicBehavior];
+    
     collision = [[UICollisionBehavior alloc] initWithItems:@[]];
     collision.translatesReferenceBoundsIntoBoundary = YES;
-    
     [animator addBehavior:collision];
+    
+    [self configureCMMotionManager];
 }
 
-- (void)addCoin {
-    OVCoinCellView *coinCellView = [OVCoinCellView createCoinViewWithRadius:20];
+- (void)configureCMMotionManager {
+    motionManager = [[CMMotionManager alloc] init];
+    motionQueue = [[NSOperationQueue alloc] init];
+    
+    [motionManager startDeviceMotionUpdatesToQueue:motionQueue withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
+        
+        double calculateGravity = M_PI_2 - M_PI_2 * motion.gravity.x + M_PI * motion.gravity.y;
+        NSLog(@"dvicemotion -> %f %f %f \n result -> %f", motion.gravity.x, motion.gravity.y, motion.gravity.z, calculateGravity);
+        gravity.angle = calculateGravity;
+    }];
+}
+
+- (void)addCoinWithRadius:(float)radius andImageURL:(NSString *)imageURL {
+    OVCoinCellView *coinCellView = [OVCoinCellView createCoinViewWithRadius:radius andImageURL:imageURL];
     coinCellView.center = CGPointMake(arc4random() % 200, 0);
     [self addSubview:coinCellView];
     
     [self.coinsArray addObject:coinCellView];
+    [dynamicBehavior addItem:coinCellView];
     [gravity addItem:coinCellView];
     [collision addItem:coinCellView];
-    
-//    gravity.angle = -M_PI_4;
+
 }
 
 /*

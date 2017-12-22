@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55DADBF7C811891A1B0A6CA4 /* libPods-OVCoinDynamicView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6753125736AEE1171D856981 /* libPods-OVCoinDynamicView.a */; };
 		CED419241FEB4B0A002E791C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CED419231FEB4B0A002E791C /* main.m */; };
 		CED419271FEB4B0A002E791C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CED419261FEB4B0A002E791C /* AppDelegate.m */; };
 		CED4192A1FEB4B0A002E791C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED419291FEB4B0A002E791C /* ViewController.m */; };
@@ -18,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6753125736AEE1171D856981 /* libPods-OVCoinDynamicView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OVCoinDynamicView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB64F459EF8F397524BB3851 /* Pods-OVCoinDynamicView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OVCoinDynamicView.release.xcconfig"; path = "Pods/Target Support Files/Pods-OVCoinDynamicView/Pods-OVCoinDynamicView.release.xcconfig"; sourceTree = "<group>"; };
+		B7486884F1D976210CD8B30F /* Pods-OVCoinDynamicView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OVCoinDynamicView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OVCoinDynamicView/Pods-OVCoinDynamicView.debug.xcconfig"; sourceTree = "<group>"; };
 		CED4191F1FEB4B0A002E791C /* OVCoinDynamicView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OVCoinDynamicView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED419231FEB4B0A002E791C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CED419251FEB4B0A002E791C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -39,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55DADBF7C811891A1B0A6CA4 /* libPods-OVCoinDynamicView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7DFF75150FA7CB944D024A72 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6753125736AEE1171D856981 /* libPods-OVCoinDynamicView.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7ED8F22598F7ECE82FD77B82 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B7486884F1D976210CD8B30F /* Pods-OVCoinDynamicView.debug.xcconfig */,
+				AB64F459EF8F397524BB3851 /* Pods-OVCoinDynamicView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CED419161FEB4B0A002E791C = {
 			isa = PBXGroup;
 			children = (
 				CED419211FEB4B0A002E791C /* OVCoinDynamicView */,
 				CED419201FEB4B0A002E791C /* Products */,
+				7ED8F22598F7ECE82FD77B82 /* Pods */,
+				7DFF75150FA7CB944D024A72 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,9 +128,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CED419361FEB4B0A002E791C /* Build configuration list for PBXNativeTarget "OVCoinDynamicView" */;
 			buildPhases = (
+				3F0DEDECA1CDD1CD2002E075 /* [CP] Check Pods Manifest.lock */,
 				CED4191B1FEB4B0A002E791C /* Sources */,
 				CED4191C1FEB4B0A002E791C /* Frameworks */,
 				CED4191D1FEB4B0A002E791C /* Resources */,
+				8A16F77E71C28EDD44E6789F /* [CP] Embed Pods Frameworks */,
+				FDA7A88126619C3EA18C6D71 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -128,6 +155,7 @@
 				TargetAttributes = {
 					CED4191E1FEB4B0A002E791C = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = 2C2F7JY8NR;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -162,6 +190,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3F0DEDECA1CDD1CD2002E075 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OVCoinDynamicView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A16F77E71C28EDD44E6789F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OVCoinDynamicView/Pods-OVCoinDynamicView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDA7A88126619C3EA18C6D71 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OVCoinDynamicView/Pods-OVCoinDynamicView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CED4191B1FEB4B0A002E791C /* Sources */ = {
@@ -288,8 +367,10 @@
 		};
 		CED419371FEB4B0A002E791C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7486884F1D976210CD8B30F /* Pods-OVCoinDynamicView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2C2F7JY8NR;
 				INFOPLIST_FILE = OVCoinDynamicView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -300,8 +381,10 @@
 		};
 		CED419381FEB4B0A002E791C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB64F459EF8F397524BB3851 /* Pods-OVCoinDynamicView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2C2F7JY8NR;
 				INFOPLIST_FILE = OVCoinDynamicView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -329,6 +412,7 @@
 				CED419381FEB4B0A002E791C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

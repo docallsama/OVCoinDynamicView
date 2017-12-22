@@ -7,6 +7,7 @@
 //
 
 #import "OVCoinCellView.h"
+#import <UIImageView+WebCache.h>
 
 @interface OVCoinCellView () <UIDynamicItem> {
     
@@ -16,18 +17,16 @@
 
 @implementation OVCoinCellView
 
-+ (OVCoinCellView *)createCoinViewWithRadius:(float)radius {
++ (OVCoinCellView *)createCoinViewWithRadius:(float)radius andImageURL:(NSString *)imageURL {
     OVCoinCellView *coinView = [[OVCoinCellView alloc] initWithFrame:CGRectMake(0, 0, radius * 2, radius *2)];
-    [coinView configureWithContent];
+    [coinView configureWithContentImageURL:imageURL];
     return coinView;
 }
 
-- (void)configureWithContent {
-    UILabel *coin = [[UILabel alloc] initWithFrame:self.bounds];
-    coin.text = @"⤴️";
-    coin.textAlignment = NSTextAlignmentCenter;
-    coin.backgroundColor = [UIColor greenColor];
-    [self addSubview:coin];
+- (void)configureWithContentImageURL:(NSString *)imageURL {
+    UIImageView *coinImageView = [[UIImageView alloc] initWithFrame:self.bounds];
+    [coinImageView sd_setImageWithURL:[NSURL URLWithString:imageURL]];
+    [self addSubview:coinImageView];
     
     CAShapeLayer *shapeLayer = [[CAShapeLayer alloc] init];
     UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:self.bounds];

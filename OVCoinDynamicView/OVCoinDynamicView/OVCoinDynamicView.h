@@ -16,6 +16,6 @@
 - (void)configureWithNewCoin;
 
 //加入新的硬币
-- (void)addCoin;
+- (void)addCoinWithRadius:(float)radius andImageURL:(NSString *)imageURL;
 
 @end

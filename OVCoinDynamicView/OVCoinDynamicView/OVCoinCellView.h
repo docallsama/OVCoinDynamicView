@@ -10,6 +10,6 @@
 
 @interface OVCoinCellView : UIView
 
-+ (OVCoinCellView *)createCoinViewWithRadius:(float)radius;
++ (OVCoinCellView *)createCoinViewWithRadius:(float)radius andImageURL:(NSString *)imageURL;
 
 @end
