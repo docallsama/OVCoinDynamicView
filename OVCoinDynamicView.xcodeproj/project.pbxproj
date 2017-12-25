@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		55DADBF7C811891A1B0A6CA4 /* libPods-OVCoinDynamicView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6753125736AEE1171D856981 /* libPods-OVCoinDynamicView.a */; };
+		CEAB53501FF0E7FB007855C2 /* avatar_4.png in Resources */ = {isa = PBXBuildFile; fileRef = CEAB534B1FF0E7FB007855C2 /* avatar_4.png */; };
+		CEAB53511FF0E7FB007855C2 /* avatar_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEAB534C1FF0E7FB007855C2 /* avatar_2.jpg */; };
+		CEAB53521FF0E7FB007855C2 /* avatar_1.png in Resources */ = {isa = PBXBuildFile; fileRef = CEAB534D1FF0E7FB007855C2 /* avatar_1.png */; };
+		CEAB53531FF0E7FB007855C2 /* avatar_5.png in Resources */ = {isa = PBXBuildFile; fileRef = CEAB534E1FF0E7FB007855C2 /* avatar_5.png */; };
+		CEAB53541FF0E7FB007855C2 /* avatar_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEAB534F1FF0E7FB007855C2 /* avatar_3.jpg */; };
 		CED419241FEB4B0A002E791C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CED419231FEB4B0A002E791C /* main.m */; };
 		CED419271FEB4B0A002E791C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CED419261FEB4B0A002E791C /* AppDelegate.m */; };
 		CED4192A1FEB4B0A002E791C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED419291FEB4B0A002E791C /* ViewController.m */; };
@@ -22,6 +27,11 @@
 		6753125736AEE1171D856981 /* libPods-OVCoinDynamicView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OVCoinDynamicView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB64F459EF8F397524BB3851 /* Pods-OVCoinDynamicView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OVCoinDynamicView.release.xcconfig"; path = "Pods/Target Support Files/Pods-OVCoinDynamicView/Pods-OVCoinDynamicView.release.xcconfig"; sourceTree = "<group>"; };
 		B7486884F1D976210CD8B30F /* Pods-OVCoinDynamicView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OVCoinDynamicView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OVCoinDynamicView/Pods-OVCoinDynamicView.debug.xcconfig"; sourceTree = "<group>"; };
+		CEAB534B1FF0E7FB007855C2 /* avatar_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar_4.png; sourceTree = "<group>"; };
+		CEAB534C1FF0E7FB007855C2 /* avatar_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatar_2.jpg; sourceTree = "<group>"; };
+		CEAB534D1FF0E7FB007855C2 /* avatar_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar_1.png; sourceTree = "<group>"; };
+		CEAB534E1FF0E7FB007855C2 /* avatar_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar_5.png; sourceTree = "<group>"; };
+		CEAB534F1FF0E7FB007855C2 /* avatar_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatar_3.jpg; sourceTree = "<group>"; };
 		CED4191F1FEB4B0A002E791C /* OVCoinDynamicView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OVCoinDynamicView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED419231FEB4B0A002E791C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CED419251FEB4B0A002E791C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -67,6 +77,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CEAB534A1FF0E7C4007855C2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CEAB534D1FF0E7FB007855C2 /* avatar_1.png */,
+				CEAB534C1FF0E7FB007855C2 /* avatar_2.jpg */,
+				CEAB534F1FF0E7FB007855C2 /* avatar_3.jpg */,
+				CEAB534B1FF0E7FB007855C2 /* avatar_4.png */,
+				CEAB534E1FF0E7FB007855C2 /* avatar_5.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		CED419161FEB4B0A002E791C = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +114,7 @@
 				CED419261FEB4B0A002E791C /* AppDelegate.m */,
 				CED419281FEB4B0A002E791C /* ViewController.h */,
 				CED419291FEB4B0A002E791C /* ViewController.m */,
+				CEAB534A1FF0E7C4007855C2 /* Resources */,
 				CED419391FEB4B44002E791C /* OVCoinDynamicView */,
 				CED4192B1FEB4B0A002E791C /* Main.storyboard */,
 				CED4192E1FEB4B0A002E791C /* Assets.xcassets */,
@@ -184,7 +207,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED419321FEB4B0A002E791C /* LaunchScreen.storyboard in Resources */,
+				CEAB53501FF0E7FB007855C2 /* avatar_4.png in Resources */,
+				CEAB53521FF0E7FB007855C2 /* avatar_1.png in Resources */,
 				CED4192F1FEB4B0A002E791C /* Assets.xcassets in Resources */,
+				CEAB53541FF0E7FB007855C2 /* avatar_3.jpg in Resources */,
+				CEAB53511FF0E7FB007855C2 /* avatar_2.jpg in Resources */,
+				CEAB53531FF0E7FB007855C2 /* avatar_5.png in Resources */,
 				CED4192D1FEB4B0A002E791C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,10 @@
 
 @interface OVCoinCellView : UIView
 
+//创建coinview，可设置圆半径以及远程图片
 + (OVCoinCellView *)createCoinViewWithRadius:(float)radius andImageURL:(NSString *)imageURL;
+
+//创建coinview，可设置圆半径以及本地图片
++ (OVCoinCellView *)createCoinViewWithRadius:(float)radius andImageName:(NSString *)imageName;
 
 @end

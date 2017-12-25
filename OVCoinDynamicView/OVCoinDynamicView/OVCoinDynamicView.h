@@ -15,7 +15,13 @@
 //配置硬币效果
 - (void)configureWithNewCoin;
 
-//加入新的硬币
+//加入使用远程图片的硬币
 - (void)addCoinWithRadius:(float)radius andImageURL:(NSString *)imageURL;
+
+//加入使用本地图片的硬币
+- (void)addCoinWithRadius:(float)radius andImageName:(NSString *)imageName;
+
+//停止重力感应
+- (void)stopDeviceMotionEffect;
 
 @end

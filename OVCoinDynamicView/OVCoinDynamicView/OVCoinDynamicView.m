@@ -25,7 +25,6 @@
 @implementation OVCoinDynamicView
 
 - (void)configureWithNewCoin {
-    
     self.coinsArray = [[NSMutableArray alloc] init];
     
     animator = [[UIDynamicAnimator alloc] initWithReferenceView:self];
@@ -50,22 +49,45 @@
     
     [motionManager startDeviceMotionUpdatesToQueue:motionQueue withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
         
-        double calculateGravity = M_PI_2 - M_PI_2 * motion.gravity.x + M_PI * motion.gravity.y;
-        NSLog(@"dvicemotion -> %f %f %f \n result -> %f", motion.gravity.x, motion.gravity.y, motion.gravity.z, calculateGravity);
-        gravity.angle = calculateGravity;
+        float aTangle = atan2f(motion.gravity.x,motion.gravity.y);
+        float tempTangle = aTangle + M_PI_2 * 3;
+        float finalTangle = (tempTangle > M_PI * 2 ? tempTangle - M_PI * 2 : tempTangle);
+        NSLog(@"final tangle -> %f",finalTangle);
+        
+        gravity.angle = finalTangle;
     }];
 }
 
 - (void)addCoinWithRadius:(float)radius andImageURL:(NSString *)imageURL {
     OVCoinCellView *coinCellView = [OVCoinCellView createCoinViewWithRadius:radius andImageURL:imageURL];
-    coinCellView.center = CGPointMake(arc4random() % 200, 0);
+    coinCellView.center = CGPointMake(arc4random() % (int)self.frame.size.width, 0);
     [self addSubview:coinCellView];
-    
+    [self addCoinToGravityView:coinCellView];
+}
+
+- (void)addCoinWithRadius:(float)radius andImageName:(NSString *)imageName {
+    OVCoinCellView *coinCellView = [OVCoinCellView createCoinViewWithRadius:radius andImageName:imageName];
+    coinCellView.center = CGPointMake(arc4random() % (int)self.frame.size.width, 0);
+    [self addSubview:coinCellView];
+    [self addCoinToGravityView:coinCellView];
+}
+
+- (void)addCoinToGravityView:(OVCoinCellView *)coinCellView {
     [self.coinsArray addObject:coinCellView];
     [dynamicBehavior addItem:coinCellView];
     [gravity addItem:coinCellView];
     [collision addItem:coinCellView];
+}
 
+- (void)stopDeviceMotionEffect {
+    [motionManager stopDeviceMotionUpdates];
+}
+
+- (void)willMoveToSuperview:(UIView *)newSuperview
+{
+    if (!newSuperview) {
+        [self stopDeviceMotionEffect];
+    }
 }
 
 /*

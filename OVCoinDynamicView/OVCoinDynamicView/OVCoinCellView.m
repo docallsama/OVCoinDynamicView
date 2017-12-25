@@ -9,9 +9,7 @@
 #import "OVCoinCellView.h"
 #import <UIImageView+WebCache.h>
 
-@interface OVCoinCellView () <UIDynamicItem> {
-    
-}
+@interface OVCoinCellView () <UIDynamicItem>
 
 @end
 
@@ -23,9 +21,19 @@
     return coinView;
 }
 
++ (OVCoinCellView *)createCoinViewWithRadius:(float)radius andImageName:(NSString *)imageName {
+    OVCoinCellView *coinView = [[OVCoinCellView alloc] initWithFrame:CGRectMake(0, 0, radius * 2, radius *2)];
+    [coinView configureWithContentImageURL:imageName];
+    return coinView;
+}
+
 - (void)configureWithContentImageURL:(NSString *)imageURL {
     UIImageView *coinImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-    [coinImageView sd_setImageWithURL:[NSURL URLWithString:imageURL]];
+    if ([imageURL hasPrefix:@"http"]) {
+        [coinImageView sd_setImageWithURL:[NSURL URLWithString:imageURL]];
+    } else {
+        coinImageView.image = [UIImage imageNamed:imageURL];
+    }
     [self addSubview:coinImageView];
     
     CAShapeLayer *shapeLayer = [[CAShapeLayer alloc] init];
@@ -33,15 +41,6 @@
     shapeLayer.path = path.CGPath;
     self.layer.mask = shapeLayer;
 }
-
-//- (UIBezierPath *)collisionBoundingPath {
-//    return [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, 40, 40)];
-//}
-//
-//- (UIDynamicItemCollisionBoundsType)collisionBoundsType
-//{
-//    return UIDynamicItemCollisionBoundsTypePath;
-//}
 
 - (UIDynamicItemCollisionBoundsType)collisionBoundsType
 {

@@ -12,7 +12,10 @@
 @interface ViewController () {
     OVCoinDynamicView *dynamicView;
     NSArray *imagesArray;
+    NSArray *localImagesArray;
+    
     int imageIndex;
+    int localImageIndex;
 }
 
 @end
@@ -24,6 +27,8 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     [self createImagesArray];
+    
+    [self addButtonToView];
     [self addOVCoinDynamicView];
 }
 
@@ -39,6 +44,12 @@
                     @"https://avatars1.githubusercontent.com/u/12547789?s=100&v=4",
                     @"https://avatars2.githubusercontent.com/u/11390582?s=100&v=4",
                     @"https://avatars0.githubusercontent.com/u/2271569?s=100&v=4",];
+    
+    localImagesArray = @[@"avatar_1.png",
+                         @"avatar_2.jpg",
+                         @"avatar_3.jpg",
+                         @"avatar_4.png",
+                         @"avatar_5.png",];
 }
 
 - (void)addOVCoinDynamicView {
@@ -46,12 +57,20 @@
     dynamicView.backgroundColor = [UIColor redColor];
     [dynamicView configureWithNewCoin];
     [self.view addSubview:dynamicView];
-    
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 40, 300, 80, 44)];
+}
+
+- (void)addButtonToView {
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 60, 300, 120, 44)];
     [self.view addSubview:button];
     [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [button setTitle:@"Add" forState:UIControlStateNormal];
+    [button setTitle:@"Add Remote" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(onClickAddCoinButton:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *localButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 60, 360, 120, 44)];
+    [self.view addSubview:localButton];
+    [localButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    [localButton setTitle:@"Add Local" forState:UIControlStateNormal];
+    [localButton addTarget:self action:@selector(onClickAddLocalCoinButton:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)onClickAddCoinButton:(UIButton *)sender {
@@ -62,6 +81,13 @@
     [dynamicView addCoinWithRadius:20 andImageURL:imagesArray[imageIndex]];
 }
 
+- (void)onClickAddLocalCoinButton:(UIButton *)sender {
+    localImageIndex++;
+    if (localImageIndex == localImagesArray.count) {
+        localImageIndex = 0;
+    }
+    [dynamicView addCoinWithRadius:30 andImageName:localImagesArray[localImageIndex]];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
