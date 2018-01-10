@@ -2,6 +2,10 @@
 模仿摩拜单车骑行贴纸功能
 支持 iOS 9.0 以上设备
 
+## 预览
+
+- ![preview.gif](preview.gif)
+
 ## 使用方式
 
 1.添加可交互区域的边界view
@@ -15,13 +19,13 @@ dynamicView.backgroundColor = [UIColor redColor];
 
 2.添加带图片的coinview
 
-*使用本地图片
+* 使用本地图片
 
 ```objc
 [dynamicView addCoinWithRadius:20 andImageURL:@"https://avatars0.githubusercontent.com/u/2271569?s=100&v=4"];
 ```
 
-*使用远程图片
+* 使用远程图片
 
 ```objc
 [dynamicView addCoinWithRadius:20 andImageName:@"avatar_1.png"];
